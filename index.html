@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhuvaneshwari | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .project-card,
+    .portfolio-card{
+        transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+
+    }
+    .project-card:hover,
+    .portfolio-card:hover{
+        transform: translateY(-10px) !important;
+        box-shadow: 0 15px 40px rgba(108, 92, 231, 0.3) !important;
+    }
+</style>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home" class="logo">Bhuvana.</a>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home -->
+    <section id="home" class="home">
+        <div class="home-content">
+            <h3>Hello, I'm</h3>
+            <h1>Bhuvaneshwari</h1>
+            <h2>Aspiring Full Stack Developer</h2>
+
+            <p>
+                I am a Computer Science Engineering student
+                passionate about software development,
+                web technologies and learning new skills.
+            </p>
+
+            <a href="#about" class="btn">About Me</a>
+        </div>
+
+        <div class="home-image">
+            <img src="images/hero.jpg" alt="Home image">
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="about-image">
+            <img src="images/about.jpg" alt="About image">
+        </div>
+
+        <div class="about-content">
+            <h1>About Me </h1>
+
+            <p>
+                I am a third-year B.E. Computer Science student
+                interested in web development and software
+                development. I enjoy learning programming,
+                developing projects and exploring technologies.
+            </p>
+            <div class="tab-titles">
+                <p class="tab-links active-link" onclick="openTab('skills')">Skills</p>
+                <p class="tab-links" onclick="openTab('education')">Education</p>
+            </div>
+            <div class="tab-contents active-tab" id="skills">
+                <ul>
+                    <li><span>Programming</span><br>Python, C</li>
+                    <li><span>Web Development</span><br>HTML, CSS, JavaScript</li>
+                    <li><span>Tools</span><br>VS Code</li>
+                </ul>
+            </div>
+            <div class="tab-contents" id="education">
+                <ul>
+                    <li><span>10th</span><br>SSLC</li>
+                    <li>Vailankanni Matric Higher Secondary School,Bargur</li>
+                    <li>Percentage:96%</li>
+                    <li><span>12th</span><br>Higher Secondary Education-Maths Biology</li>
+                    <li>Vailankanni Matric Higher Secondary School,Bargur</li>
+                    <li>Percentage:91.3%</li>
+                    <li><span>2024 - 2028</span><br>B.E. Computer Science and Engineering</li>
+                    <li>Government College of Engineering, Bargur</li>
+                </ul>
+            </div>
+            
+        </div>
+  
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+        <h1>My Services</h1>
+
+        <div class="service-container">
+
+            <div class="service-card">
+                <h2>Web Development</h2>
+                <p>
+                    Creating responsive and user-friendly
+                    websites using HTML, CSS and JavaScript.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h2>Software Development</h2>
+                <p>
+                    Learning and developing software solutions
+                    using programming languages.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h2>UI Design</h2>
+                <p>
+                    Designing simple and attractive website
+                    interfaces for users.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="portfolio">
+        <h1>My Projects</h1>
+
+        <div class="portfolio-container">
+
+            <div class="portfolio-card">
+                <h2>SmartScore AI</h2>
+                <p>
+                   A student performance and personalized study assistant designed to analyze study hours, previous exam scores and attendance to help students improve their academic performance.
+                </p>
+            </div>
+
+            <div class="portfolio-card">
+                <h2>Hospital Management System</h2>
+                <p>
+                   A simple software application designed to organize hospital information and support basic hospital management operations.
+                </p>    
+            </div>
+
+            <div class="portfolio-card">
+                <h2>Personal Portfolio</h2>
+                <p>
+                    A personal website to showcase
+                    my skills, projects and profile.
+                </p>
+            </div>
+
+        </div>
+    </section>
+    
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <h1>Contact Me</h1>
+
+        <form id="contact-form">
+            <input type="text" id="name"
+                placeholder="Your Name" required>
+
+            <input type="email" id="email"
+                placeholder="Your Email" required>
+
+            <textarea id="message"
+                placeholder="Your Message" required></textarea>
+
+            <button type="submit" class="btn">
+                Send Message
+            </button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Bhuvaneshwari | Personal Portfolio</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    function openTab(tabName) {
+        let tabContents = document.querySelectorAll(".tab-contents");
+        let tabLinks = document.querySelectorAll(".tab-links");
+                tabContents.forEach(function(content) {
+                    content.classList.remove("active-tab");
+                });
+                tabLinks.forEach(function(link) {
+                    link.classList.remove("active-link");
+                });
+                document.getElementById(tabName).classList.add("active-tab");
+                event.currentTarget.classList.add("active-link");
+        
+    }
+
+        
+    </script>
+</body>
+</html>
