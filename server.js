@@ -63,3 +63,4 @@ server.on('error', (err) => {
     console.log('Server error:',err);
 });
 console.log("FILE IS RUNNING");
+module.exports=app;
