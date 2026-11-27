@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "express":"^5.1.0",
-    "mysql2": "^3.24.6"
+    "mysql2": "^3.24.6",
     "cors":"^2.8.5"
   }
 }
