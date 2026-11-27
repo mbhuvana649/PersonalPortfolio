@@ -52,15 +52,4 @@ app.post('/contact', (req, res) => {
 
     res.send('Message received and saved!');
 });
-
-const server=app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
-});
-server.on('close', () =>{
-    console.log('Server closed');
-});
-server.on('error', (err) => {
-    console.log('Server error:',err);
-});
-console.log("FILE IS RUNNING");
 module.exports=app;
