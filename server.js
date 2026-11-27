@@ -49,7 +49,7 @@ app.post('/contact', (req, res) => {
         console.log('CONTACT ROUTE REACHED');
 
         db.query(
-            "INSERT INTO contact_message(name,email,message) VALUES(?, ?, ?)",
+            "INSERT INTO contact_message(name,email,message) VALUES(?1, ?2, ?3)",
             [cleanName, cleanEmail, cleanMessage],
             (err, result) => {
                 if (err) {
