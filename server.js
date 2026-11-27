@@ -1,15 +1,10 @@
-const db=require('./db');
-const fs = require('fs');
-const XLSX = require('xlsx');
+const db = require('./db');
 const express = require('express');
 const cors = require('cors');
+
 const app = express();
 
 app.use(cors());
-app.use(express.json()); 
-
-const port = 3000;
-
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -18,38 +13,21 @@ app.get('/', (req, res) => {
 
 app.post('/contact', (req, res) => {
     console.log('CONTACT ROUTE REACHED');
-    console.log(req.body);
+
     const { name, email, message } = req.body;
+
     db.query(
-        "INSERT INTO contact_message(name,email,message)VALUES(?, ?, ?)",
-        [name,email,message]
-    );
+        "INSERT INTO contact_message(name,email,message) VALUES(?, ?, ?)",
+        [name, email, message],
+        (err, result) => {
+            if (err) {
+                console.error('Database error:', err);
+                return res.status(500).send('Database error');
+            }
 
-    const filePath = 'contacts.xlsx';
-
-    let workbook;
-    let worksheet;
-
-    if (fs.existsSync(filePath)) {
-        workbook = XLSX.readFile(filePath);
-        worksheet = workbook.Sheets['Contacts'];
-        if(!worksheet){
-            worksheet=XLSX.utils.aoa_to_sheet([
-                ['Name','Email','Message']
-            ]);
-            XLSX.utils.book_append_sheet(workbook, worksheet, 'Contacts');
+            res.send('Message received and saved!');
         }
-    } else {
-        workbook = XLSX.utils.book_new();
-        worksheet=XLSX.utils.aoa_to_sheet([
-                ['Name','Email','Message']
-            ]);
-            XLSX.utils.book_append_sheet(workbook, worksheet, 'Contacts');
-    }
-
-    XLSX.utils.sheet_add_aoa(worksheet,[[name,email,message]],{origin: -1});
-    XLSX.writeFile(workbook, filePath);
-
-    res.send('Message received and saved!');
+    );
 });
-module.exports=app;
+
+module.exports = app;
