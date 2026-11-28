@@ -9,6 +9,15 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.send('My Personal Portfolio Backend is Working!');
 });
+app.get('/test-db', (req, res) => {
+    db.query('SELECT NOW() AS current_time', (err, result) => {
+        if (err) {
+            console.log('Database test failed:', err);
+            return res.status(500).send('Database connection failed');
+        }
+        res.send('PostgreSQL Connected Successfully! ' + result.rows[0].current_time);
+    });
+});
 
 app.post('/contact', async (req, res) => {
     try {
