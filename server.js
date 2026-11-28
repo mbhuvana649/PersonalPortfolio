@@ -75,3 +75,17 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+app.get('/test-db', async (req, res) => {
+  try {
+    const result = await db.query('SELECT NOW()');
+    res.json({
+      message: 'Database connected successfully!',
+      time: result.rows[0]
+    });
+  } catch (err) {
+    res.status(500).json({
+      message: 'Database connection failed',
+      error: err.message
+    });
+  }
+});
