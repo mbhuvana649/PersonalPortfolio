@@ -14,7 +14,7 @@ contactForm.addEventListener("submit", async function(event) {
         return;
     }
     try{
-        const response = await fetch("https://my-portfolio-api-2026.onrender.com",{
+        const response = await fetch("https://my-portfolio-api-2026.onrender.com/contact",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
